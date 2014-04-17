@@ -1,0 +1,50 @@
+<% if(current_user != nil) %>
+    <% if(current_user.admin == true) %>
+        <h2>Welcome, <%= current_user.email %>!</h2>
+
+        <h3><%= link_to "All Users", :action => "index" %>  |
+        <%= link_to "Users awaiting approval", :action => "index", :approved => "false"%>  |
+        <%= link_to "Approved Users", :action => "index", :approved => "true" %></h3>
+
+            <table>
+              <tr>
+                <th>Email Address</th>
+                <th>Role</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+
+              <% for user in @users %>
+
+                  <tr>
+                    <td> <%= user.email %></td>
+
+                    <% if(user.admin == true)%>
+                        <td>Administrator</td>
+                    <%else%>
+                        <td>POI manager</td>
+                    <%end%>
+
+                    <% if(user.admin == false)%>
+                        <td><h4><%= link_to 'Delete User', admin_destroy_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+                    <%end%>
+
+                    <% if(!user.approved?)%>
+                        <td bgcolor="#f23524"><%= link_to "Click to Approve", approve_user_path(user.id)  %></td>
+                    <%end%>
+                  </tr>
+              <% end %>
+            </table>
+
+    <% elsif(current_user.admin == false) %>
+        <h2>
+          Only admins can access this page!
+        </h2>
+    <% end %>
+<% else %>
+    <h2>
+      Please login as admin to view this page!
+    </h2>
+<% end %>
+

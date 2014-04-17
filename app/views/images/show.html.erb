@@ -1,0 +1,10 @@
+<p>
+  <strong></strong>
+  <%= image_tag @image.file %>
+</p>
+
+<h3>
+  <%= link_to "Edit", edit_image_path(@image) %> |
+  <%= link_to "Destroy", @image, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", images_path %>
+</h3>

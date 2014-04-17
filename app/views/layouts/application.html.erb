@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "On POInt" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%# Modernizr is required for Zurb Foundation %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="side_bar">
+        <div id="logo">&nbsp; On<br><br>POInt</div>
+        <header>
+          <%= render 'layouts/navigation' %>
+        </header>
+    </div>
+    <div id="main_content">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+    </div>
+  </body>
+</html>

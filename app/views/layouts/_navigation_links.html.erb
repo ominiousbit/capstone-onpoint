@@ -1,0 +1,28 @@
+<%# add navigation links to this file %>
+<div id="nav_links">
+
+<%= link_to 'POI Home', root_path %><br>
+<%= link_to 'More Details', poi_path %><br>
+
+<% if user_signed_in? %>
+  <hr>
+  <%= link_to 'Manage POIs', poimanages_path %><br>
+  <%= link_to 'Manage Images', images_path %><br>
+  <%= link_to 'Edit Account', edit_user_registration_path %><br>
+  <%end%>
+
+<% if user_signed_in? && current_user.admin==true%>
+  <hr>
+  <%= link_to 'Manage Users', admins_path %><br>
+<% end %>
+</div>
+
+<div id="user_login">
+<% if user_signed_in? %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to '<<  Logout', destroy_user_session_path, :method=>'delete' %><br>
+<% else %>
+      <%= link_to 'Sign Up!', new_user_registration_path %>
+      <%= link_to 'Login', new_user_session_path %>
+<% end %>
+</div>

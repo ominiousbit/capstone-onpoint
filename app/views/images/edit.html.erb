@@ -1,0 +1,10 @@
+<h1>Edit Image</h1><br>
+
+<div id="allImages"><%= image_tag @image.file %></div><br>
+
+<%= render 'form' %>
+
+<h3>
+  <%= link_to "Show", @image %> |
+  <%= link_to "View All", images_path %>
+</h3>

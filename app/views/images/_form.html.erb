@@ -1,0 +1,8 @@
+<%= form_for @image, html: { multipart: true } do |f| %>
+  <p>
+    <div id="minimizeWidth">
+    <%= f.file_field :file, :class => 'button' %>
+    </div>
+    <%= f.submit :class => 'button' %>
+  </p>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>All Wolfie Images</h1>
+
+<h3><%= link_to "Add New Image", new_image_path, :class => 'button' %></h3>
+
+<table>
+  <tr>
+    <th></th>
+  </tr>
+  <% for image in @images %>
+    <tr>
+      <td><div id="allImages"><%= image_tag image.file %></div></td>
+      <td><%= link_to "Show", image %></td>
+      <td><%= link_to "Edit", edit_image_path(image) %></td>
+      <td><%= link_to "Destroy", image, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

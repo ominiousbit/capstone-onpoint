@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @poimanage.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @poimanage.longitude %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @poimanage.description %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @poimanage.title %>
+</p>
+
+<%= link_to 'Edit', edit_poimanage_path(@poimanage) %> |
+<%= link_to 'Back', poimanages_path %>

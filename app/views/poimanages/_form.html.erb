@@ -1,0 +1,33 @@
+<%= form_for(@poimanage) do |f| %>
+  <% if @poimanage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poimanage.errors.count, "error") %> prohibited this poimanage from being saved:</h2>
+
+      <ul>
+      <% @poimanage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <div id="minimizeWidth"><%= f.text_field :latitude %></div>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <div id="minimizeWidth"><%= f.text_field :longitude %></div>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <div id="minimizeWidth"> <%= f.text_area :description %></div>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <div id="minimizeWidth"> <%= f.text_field :title %></div>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => 'button'  %>
+  </div>
+<% end %>
