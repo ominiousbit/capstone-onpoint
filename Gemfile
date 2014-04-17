@@ -20,7 +20,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-
 gem 'rails_12factor', group: :production
 gem "carrierwave"
 gem "mini_magick"
